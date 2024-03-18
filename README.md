@@ -52,3 +52,17 @@ In the container, make a workspace folder that contains the same directories on 
 Exit the Docker container with `exit`. 
 
 ## Training and testing a model
+
+The bash scripts `copy_files.sh` and `copy_plots.sh` transfer files back and forth between your local machine and the Docker container where the pipeline will be run. Replace the IMAGE ID in these 2 scripts with the IMAGE ID from the image you created, and replace the names of the data files with the names of your data files. On your local machine, navigate to the `code` folder. To copy your working files to the Docker container:
+
+        bash copy_files.sh
+
+Then enter the Docker container wih the docker run command from above, navigate to workspace/code, and run:
+
+        python main.py
+
+Outside of the Docker container, in the `code` folder on your local machine, copy the resulting plots generated in the Docker container to your local machine so you can view them:
+
+        bash copy_plots.sh
+
+If you have successfully run the pipeline and copied your files, the performance plots will appear in the results folder on your local machine. 
