@@ -1,4 +1,4 @@
-# Overview: NLP of Medical Notes
+# Overview
 
 The files here are adapted from [Marta Fernandes et al. 2020](https://medinform.jmir.org/2021/2/e25457/). The files run a Natural Language Processing pipeline on doctor-written EHR notes of ICU patients. We take the raw text of notes, process them into computer-readable embeddings, and use those tokens as input into a logistic regression model that predicts a new patient’s coma recovery outcome (CPC score).
 
@@ -35,5 +35,20 @@ All the files in the pipeline assume that the note text to be processed and mode
 
 ## Docker setup
 
-## Training and testing a model
+Run the Docker Daemon by opening Docker Desktop on your computer. In a terminal window, navigate to the directory that contains the Dockerfile. To build an image from the Dockerfile, enter the following command with 'name' replaced with the name you want to give your image:
 
+    docker build -t name:latest .
+
+Use the command `docker images` to view your images and make sure that your new image has been created with the intended name. Copy your image's IMAGE ID for later. To run your image and enter a Docker container:
+
+    docker run -it name:latest /bin/bash
+
+In the container, make a workspace folder that contains the same directories on your local machine for consistency:
+
+    mkdir workspace
+    cd workspace
+    mkdir code data results
+
+Exit the Docker container with `exit`. 
+
+## Training and testing a model
