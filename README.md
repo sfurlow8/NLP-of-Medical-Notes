@@ -1,4 +1,4 @@
-# NLP-of-Medical-Notes
+# Overview: NLP of Medical Notes
 
 The files here are adapted from [Marta Fernandes et al. 2020](https://medinform.jmir.org/2021/2/e25457/). The files run a Natural Language Processing pipeline on doctor-written EHR notes of ICU patients. We take the raw text of notes, process them into computer-readable embeddings, and use those tokens as input into a logistic regression model that predicts a new patient’s coma recovery outcome (CPC score).
 
